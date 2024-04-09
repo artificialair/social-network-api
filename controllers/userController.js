@@ -1,5 +1,6 @@
 const User = require("../models/User");
 
+// GET to get all users
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -10,6 +11,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
+// GET to get a single user by its _id
 const getOneUser = async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.userId }).select("-__v");
@@ -25,6 +27,7 @@ const getOneUser = async (req, res) => {
   }
 };
 
+// POST to create a new user
 const newUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
@@ -35,6 +38,7 @@ const newUser = async (req, res) => {
   }
 };
 
+// PUT to update a user by its _id
 const updateUser = async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(
@@ -54,6 +58,7 @@ const updateUser = async (req, res) => {
   }
 };
 
+// DELETE to remove user by its _id
 const deleteUser = async (req, res) => {
   try {
     const user = await User.findOneAndDelete({ _id: req.params.userId });
@@ -69,6 +74,7 @@ const deleteUser = async (req, res) => {
   }
 };
 
+// POST to add a new friend to a user's friend list
 const addFriend = async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(
@@ -88,6 +94,7 @@ const addFriend = async (req, res) => {
   }
 };
 
+// DELETE to remove a friend from a user's friend list
 const removeFriend = async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(

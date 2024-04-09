@@ -15,7 +15,7 @@ const userSchema = new Schema(
       lowercase: [true, "Email address must be lowercase"],
       validate: {
         validator: function (val) {
-          return /^[^\s@][a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(
+          return /^[^\s@][a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(  // e-mail regex
             val
           );
         },
